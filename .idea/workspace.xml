@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="Adiciona tratamento de exeções, estabelece conexao com banco de dados mysql, e implementa uma parte da configuração do bot telegram.">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/botTelegram/Bot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/DatabaseAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/FaltaDriverMSQLException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/InvalidInputParametersException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_48.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_48.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Telegram_Bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Telegram_Bot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bd.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objetos/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Bem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objetos/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objetos/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Localizacao.java" afterDir="false" />
@@ -23,7 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoBem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoCategoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoLocalizacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/CodInexistenteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/FaltaDriverMSQLException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/excecoesBD/AbsenceDriverMSQLException.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -131,6 +119,14 @@
       <workItem from="1573670303251" duration="3219000" />
       <workItem from="1573747438675" duration="346000" />
     </task>
+    <task id="LOCAL-00001" summary="Adiciona tratamento de exeções, estabelece conexao com banco de dados mysql, e implementa uma parte da configuração do bot telegram.">
+      <created>1574091851588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574091851588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

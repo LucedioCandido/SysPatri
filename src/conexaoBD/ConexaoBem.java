@@ -1,13 +1,20 @@
 package conexaoBD;
 
 import Objetos.Bem;
-import conexaoBD.excecoesBD.*;
+import Objetos.Localizacao;
+import conexaoBD.excecoesBD.AbsenceDriverMSQLException;
+import conexaoBD.excecoesBD.DatabaseAccessException;
+import conexaoBD.excecoesBD.InvalidInputParametersException;
+
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ConexaoBem extends Conexao {
 
-    public boolean adicionar(Bem newBem) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
+    //Cadastro de um novo bem
+    public boolean adicionar(Bem newBem) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
         String sql = "insert into bens(nome, descricao, cod_Categoria, cod_Localizacao) values(?,?,?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -28,7 +35,8 @@ public class ConexaoBem extends Conexao {
         return false;
     }
 
-    public boolean remover(int cod) throws InvalidInputParametersException, FaltaDriverMSQLException, DatabaseAccessException {
+    //remoção de um bem
+    public boolean remover(int cod) throws InvalidInputParametersException, AbsenceDriverMSQLException, DatabaseAccessException {
         String sql = "delete from bens where cod_bem = "+cod+";";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -43,4 +51,83 @@ public class ConexaoBem extends Conexao {
         }
         return false;
     }
+
+    //movimentar bem entre localizacao, de uma para outra.
+    public boolean mover()throws InvalidInputParametersException,DatabaseAccessException,AbsenceDriverMSQLException  {
+    //@ TODO: 18/11/2019
+        return true;
+    }
+
+    //consultar por localização
+    public ArrayList<Bem> consultar(Localizacao local) throws InvalidInputParametersException {
+        ArrayList<Bem> bens = new ArrayList<Bem>();
+        String sql = "Select * from bens where cod_localizacao = "+local.getCodLocalizacao()+";";
+        try {
+            ResultSet resultado = estado.executeQuery(sql);
+            while (resultado.next()) {
+                Bem bem = new Bem(
+                        resultado.getInt("cod_bem"),
+                        resultado.getString("nome"),
+                        resultado.getString("descricao"),
+                        resultado.getInt("cod_localizacao"),
+                        resultado.getInt("cod_categoria")
+                );
+
+                bens.add(bem);
+            }
+        } catch (SQLException ex) {
+            throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
+        }
+        return bens;
+    }
+
+    //consultar por código do bem
+    public ArrayList<Bem> consultar(int codBem) throws InvalidInputParametersException {
+        ArrayList<Bem> bens = new ArrayList<Bem>();
+        String sql = "Select * from bens where cod_bem = "+codBem+";";
+        try {
+            ResultSet resultado = estado.executeQuery(sql);
+            while (resultado.next()) {
+                Bem bem = new Bem(
+                        resultado.getInt("cod_bem"),
+                        resultado.getString("nome"),
+                        resultado.getString("descricao"),
+                        resultado.getInt("cod_localizacao"),
+                        resultado.getInt("cod_categoria")
+                );
+
+                bens.add(bem);
+            }
+        } catch (SQLException ex) {
+            throw new InvalidInputParametersException("Erro na instrução sql. Não encontrou no BD, tabela ou tupla, espeficicados.: ", ex );
+        }
+        return bens;
+    }
+
+    //consultar por nome ou descricao do bem.
+    // Paramentro: string a ser buscada, inteiro com representando a tupla na tabela, 0 para nome, qualquero outro valor  inteiro para descricao.
+    public ArrayList<Bem> consultar(String valorBusca, int Colfiltro) throws InvalidInputParametersException {
+        String tuplaDaBusca = (Colfiltro == 0) ? "nome" : "descricao";
+        ArrayList<Bem> bens = new ArrayList<Bem>();
+        String sql = "Select * from bens where "+ tuplaDaBusca+" like '"+valorBusca+"%';";
+        try {
+            ResultSet resultado = estado.executeQuery(sql);
+            while (resultado.next()) {
+                Bem bem = new Bem(
+                        resultado.getInt("cod_bem"),
+                        resultado.getString("nome"),
+                        resultado.getString("descricao"),
+                        resultado.getInt("cod_localizacao"),
+                        resultado.getInt("cod_categoria")
+                );
+                bens.add(bem);
+            }
+        } catch (SQLException ex) {
+            throw new InvalidInputParametersException("Erro na instrução sql. Não encontrou no BD, tabela ou tupla, espeficicados.: ", ex );
+        }
+        return bens;
+    }
+
+
+
 }

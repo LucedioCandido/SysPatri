@@ -22,13 +22,13 @@ public abstract class Conexao{
     public static Statement estado;
 
 
-    public static boolean conectar() throws FaltaDriverMSQLException,DatabaseAccessException{
+    public static boolean conectar() throws AbsenceDriverMSQLException,DatabaseAccessException{
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(str_con, usuario, senha);
             estado = conexao.createStatement();
         } catch (ClassNotFoundException ex) {
-            throw new FaltaDriverMSQLException("Não encontrou o Driver do mysql, falta da biblioteca jdbcConector!");
+            throw new AbsenceDriverMSQLException("Não encontrou o Driver do mysql, falta da biblioteca jdbcConector!");
         } catch (SQLException ex) {
             throw new DatabaseAccessException("Dados de acesso ao banco de dados incorretos");
         }
@@ -47,27 +47,3 @@ public abstract class Conexao{
     }
 
 }
-
-/*
-  public ArrayList<Produto> consultar() {
-        ArrayList<Produto> lista = new ArrayList<>();
-        String sql = "Select * from Produto";
-        try {
-            ResultSet resultado = estado.executeQuery(sql);
-            while (resultado.next()) {
-                Produto produto = new Produto();
-                produto.setCod_Produto(resultado.getInt("Cod_Produto"));
-                produto.setDescricao(resultado.getString("Descricao"));
-                produto.setQuantidade(resultado.getInt("Quantidade"));
-                produto.setTamanho(resultado.getDouble("Tamanho"));
-                produto.setMedida(resultado.getString("Medida"));
-                produto.setPreco(resultado.getDouble("Preco"));
-                produto.setPreco_Revenda(resultado.getDouble("Preco_Revenda"));
-                lista.add(produto);
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao tentar consultar dados do Produto!");
-        }
-        return lista;
-    }
-* */

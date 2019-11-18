@@ -5,6 +5,16 @@ public class Categoria {
     private String descricao;
     private int codCategoria;
 
+    public Categoria() {
+
+    }
+
+    public Categoria(int codCategoria, String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.codCategoria = codCategoria;
+    }
+
     public String getNome() {
         return nome;
     }

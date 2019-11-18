@@ -1,15 +1,18 @@
 package conexaoBD;
 
+import Objetos.Categoria;
+import conexaoBD.excecoesBD.AbsenceDriverMSQLException;
 import conexaoBD.excecoesBD.DatabaseAccessException;
-import conexaoBD.excecoesBD.FaltaDriverMSQLException;
 import conexaoBD.excecoesBD.InvalidInputParametersException;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class ConexaoCategoria extends Conexao   {
+public class ConexaoCategoria extends Conexao {
 
-    public boolean adicionar(String nome, String descricao) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
+    public boolean adicionar(String nome, String descricao) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
         String sql = "insert into categoria(nome, descricao) values(?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -29,7 +32,7 @@ public class ConexaoCategoria extends Conexao   {
     }
 
 
-    public boolean excluir(int cod) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
+    public boolean excluir(int cod) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
         String sql = "delete from categoria where cod_categoria = ?";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -46,4 +49,29 @@ public class ConexaoCategoria extends Conexao   {
         }
         return false;
     }
+
+    //consultar todas as localizacoes
+    public ArrayList<Categoria> consultar() throws InvalidInputParametersException, DatabaseAccessException, AbsenceDriverMSQLException {
+        ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+        String sql = "Select * from categoria ;";
+        if(conectar()){
+            try {
+                ResultSet resultado = estado.executeQuery(sql);
+                while (resultado.next()) {
+                    Categoria bem = new Categoria(
+                            resultado.getInt("cod_categoria"),
+                            resultado.getString("nome"),
+                            resultado.getString("descricao")
+                    );
+
+                    categorias.add(bem);
+                }
+            } catch (SQLException ex) {
+                throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
+            }
+        }
+
+        return categorias;
+    }
+
 }

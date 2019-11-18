@@ -1,6 +1,9 @@
 package Objetos;
 
 public class Bem {
+
+
+    private int codBem;
     private String nome;
     private String descricao;
     private int codCategoria;
@@ -15,6 +18,23 @@ public class Bem {
         this.codCategoria = codCat;
         this.codLocalizacao = codLocal;
         this.codCategoria = codCat;
+    }
+
+    public Bem(int codBem, String nome, String descricao, int codCat, int codLocal){
+        this.codBem = codBem;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.codCategoria = codCat;
+        this.codLocalizacao = codLocal;
+        this.codCategoria = codCat;
+    }
+
+    public int getCodBem() {
+        return codBem;
+    }
+
+    public void setCodBem(int codBem) {
+        this.codBem = codBem;
     }
     public String getNome() {
         return nome;

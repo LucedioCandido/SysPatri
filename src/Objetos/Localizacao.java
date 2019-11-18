@@ -6,6 +6,15 @@ public class Localizacao {
     private String descricao;
     private int codLocalizacao;
 
+    public Localizacao() {
+    }
+
+    public Localizacao(int codLocalizacao, String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.codLocalizacao = codLocalizacao;
+    }
+
     public String getNome() {
         return nome;
     }
