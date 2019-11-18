@@ -1,13 +1,13 @@
 package conexaoBD;
 
 import Objetos.Bem;
-import conexaoBD.excecoesBD.CodInexistenteException;
+import conexaoBD.excecoesBD.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConexaoBem extends Conexao {
 
-    public boolean cadastrar(Bem newBem) {
+    public boolean adicionar(Bem newBem) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
         String sql = "insert into bens(nome, descricao, cod_Categoria, cod_Localizacao) values(?,?,?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -20,7 +20,7 @@ public class ConexaoBem extends Conexao {
                 estadoAtual.execute();
                 return true;
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new InvalidInputParametersException("Parametro invalido:", e);
             }finally {
                 desconectar();
             }
@@ -28,7 +28,7 @@ public class ConexaoBem extends Conexao {
         return false;
     }
 
-    public boolean deletar(int cod) throws CodInexistenteException {
+    public boolean remover(int cod) throws InvalidInputParametersException, FaltaDriverMSQLException, DatabaseAccessException {
         String sql = "delete from bens where cod_bem = "+cod+";";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -36,7 +36,7 @@ public class ConexaoBem extends Conexao {
                 estadoAtual = conexao.prepareStatement(sql);
                 return true;
             } catch ( SQLException ex) {
-                throw new CodInexistenteException("codNotExistentOfTableException", ex);
+                throw new InvalidInputParametersException("Elemento possui dependencia e nao pode ser removido, remover dependencias primeiro:",ex);
             } finally {
                 desconectar();
             }

@@ -1,11 +1,12 @@
 package conexaoBD;
 
+import conexaoBD.excecoesBD.*;;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 /*
+
 Classe responsável por estabelecer a conexão do sistema com o banco de dados mysql
 @author Lucédio candido
 */
@@ -21,26 +22,26 @@ public abstract class Conexao{
     public static Statement estado;
 
 
-    public static boolean conectar() {
+    public static boolean conectar() throws FaltaDriverMSQLException,DatabaseAccessException{
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(str_con, usuario, senha);
             estado = conexao.createStatement();
         } catch (ClassNotFoundException ex) {
-            System.out.println("Não encontrou o Driver do mysql!");
+            throw new FaltaDriverMSQLException("Não encontrou o Driver do mysql, falta da biblioteca jdbcConector!");
         } catch (SQLException ex) {
-            System.out.println("Erro ao conectar, dados de acesso inválidos");
+            throw new DatabaseAccessException("Dados de acesso ao banco de dados incorretos");
         }
 
         return true;
     }
 
-    public static void desconectar() {
+    public static void desconectar() throws DatabaseAccessException {
         try {
             estado.close();
             conexao.close();
         } catch (SQLException ex) {
-            System.out.println("Erro ao fechar conexão!");
+            throw new DatabaseAccessException("Erro ao fechar conexao, conexao perdida:", ex);
         }
 
     }
@@ -69,24 +70,4 @@ public abstract class Conexao{
         }
         return lista;
     }
-
-
-    public void deletar(int Cod_Produto) {
-        String sql = "delete from Produto where Cod_Produto = ?";
-        PreparedStatement estadoAtual;
-        conectar();
-        try {
-            estadoAtual = conexao.prepareStatement(sql);
-            estadoAtual.setInt(1, Cod_Produto);
-            estadoAtual.execute();
-            JOptionPane.showMessageDialog(null, "Cadastro deletado!");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Deletar produto!");
-
-        } finally {
-            fecharConexao();
-        }
-    }
-
-
 * */

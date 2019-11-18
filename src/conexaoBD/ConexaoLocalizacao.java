@@ -1,10 +1,14 @@
 package conexaoBD;
 
+import conexaoBD.excecoesBD.DatabaseAccessException;
+import conexaoBD.excecoesBD.FaltaDriverMSQLException;
+import conexaoBD.excecoesBD.InvalidInputParametersException;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConexaoLocalizacao extends Conexao {
-    public boolean cadastrar(String nome, String descricao) {
+    public boolean adicionar(String nome, String descricao) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
         String sql = "insert into localizacao(nome, descricao) values(?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -15,7 +19,7 @@ public class ConexaoLocalizacao extends Conexao {
                 estadoAtual.execute();
                 return true;
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new InvalidInputParametersException("Parametro invalido:",e);
             }
 
         }
@@ -24,7 +28,7 @@ public class ConexaoLocalizacao extends Conexao {
     }
 
 
-    public boolean deletar(int cod) {
+    public boolean remover(int cod) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
         String sql = "delete from localizacao where cod_localizacao = ?";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -34,7 +38,7 @@ public class ConexaoLocalizacao extends Conexao {
                 estadoAtual.execute();
                 return true;
             } catch ( SQLException ex) {
-                System.out.println("errro ao deletar");
+                throw new InvalidInputParametersException("Elemento possui dependencias e nao pode ser removido, remover dependencias primeiro:",ex);
             } finally {
                 desconectar();
             }

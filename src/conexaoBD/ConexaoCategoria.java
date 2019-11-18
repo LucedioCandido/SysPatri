@@ -1,13 +1,15 @@
 package conexaoBD;
 
+import conexaoBD.excecoesBD.DatabaseAccessException;
+import conexaoBD.excecoesBD.FaltaDriverMSQLException;
+import conexaoBD.excecoesBD.InvalidInputParametersException;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConexaoCategoria extends Conexao   {
 
-
-
-    public boolean cadastrar(String nome, String descricao) {
+    public boolean adicionar(String nome, String descricao) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
         String sql = "insert into categoria(nome, descricao) values(?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -18,7 +20,7 @@ public class ConexaoCategoria extends Conexao   {
                 estadoAtual.execute();
                 return true;
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new InvalidInputParametersException("Parametro invalido:",e);
             }
 
         }
@@ -27,7 +29,7 @@ public class ConexaoCategoria extends Conexao   {
     }
 
 
-    public boolean deletar(int cod) {
+    public boolean excluir(int cod) throws DatabaseAccessException, FaltaDriverMSQLException, InvalidInputParametersException {
         String sql = "delete from categoria where cod_categoria = ?";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -37,7 +39,7 @@ public class ConexaoCategoria extends Conexao   {
                 estadoAtual.execute();
                 return true;
             } catch ( SQLException ex) {
-                System.out.println("errro ao deletar");
+                throw new InvalidInputParametersException("Elemento possui dependencias e nao pode ser removido, remover dependencias primeiro:",ex);
             } finally {
                 desconectar();
             }
