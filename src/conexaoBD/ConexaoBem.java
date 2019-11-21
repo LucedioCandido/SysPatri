@@ -42,6 +42,7 @@ public class ConexaoBem extends Conexao {
         if(conectar()){
             try {
                 estadoAtual = conexao.prepareStatement(sql);
+                estadoAtual.execute();
                 return true;
             } catch ( SQLException ex) {
                 throw new InvalidInputParametersException("Elemento possui dependencia e nao pode ser removido, remover dependencias primeiro:",ex);
@@ -53,9 +54,21 @@ public class ConexaoBem extends Conexao {
     }
 
     //movimentar bem entre localizacao, de uma para outra.
-    public boolean mover()throws InvalidInputParametersException,DatabaseAccessException,AbsenceDriverMSQLException  {
-    //@ TODO: 18/11/2019
-        return true;
+    public boolean mover(Bem bem, Localizacao destino)throws InvalidInputParametersException,DatabaseAccessException,AbsenceDriverMSQLException  {
+        String sql = "update bens set cod_localizacao ="+destino.getCodLocalizacao()+" from bens where cod_bem = "+bem.getCodBem()+";";
+        PreparedStatement estadoAtual;
+        if(conectar()){
+            try {
+                estadoAtual = conexao.prepareStatement(sql);
+                estadoAtual.execute();
+                return true;
+            } catch ( SQLException ex) {
+                throw new InvalidInputParametersException("Erro na operação: ",ex);
+            } finally {
+                desconectar();
+            }
+        }
+        return false;
     }
 
     //consultar por localização
@@ -128,6 +141,14 @@ public class ConexaoBem extends Conexao {
         return bens;
     }
 
-
+    public ResultSet gerarRelatorio() throws InvalidInputParametersException {
+        try {
+            String sql = "Select * from bens wh%';";
+            ResultSet resultado = estado.executeQuery(sql);
+            return  resultado;
+        } catch (SQLException ex) {
+            throw new InvalidInputParametersException("Erro na instrução sql. Não encontrou no BD, tabela ou tupla, espeficicados.: ", ex );
+        }
+    }
 
 }

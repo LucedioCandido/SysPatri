@@ -28,9 +28,7 @@ create table bens(
     foreign key(cod_localizacao) references localizacao(cod_localizacao),
     foreign key(cod_categoria) references categoria(cod_categoria)    
 );
-show databases;
 
-select * from bens;
 
 
 

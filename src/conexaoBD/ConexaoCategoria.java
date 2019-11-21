@@ -25,9 +25,7 @@ public class ConexaoCategoria extends Conexao {
             } catch (SQLException e) {
                 throw new InvalidInputParametersException("Parametro invalido:",e);
             }
-
         }
-
         return false;
     }
 
@@ -50,7 +48,7 @@ public class ConexaoCategoria extends Conexao {
         return false;
     }
 
-    //consultar todas as localizacoes
+    //consultar todas as categorias
     public ArrayList<Categoria> consultar() throws InvalidInputParametersException, DatabaseAccessException, AbsenceDriverMSQLException {
         ArrayList<Categoria> categorias = new ArrayList<Categoria>();
         String sql = "Select * from categoria ;";
@@ -70,8 +68,6 @@ public class ConexaoCategoria extends Conexao {
                 throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
             }
         }
-
         return categorias;
     }
-
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
+    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="Adiciona tratamento de exeções, estabelece conexao com banco de dados mysql, e implementa uma parte da configuração do bot telegram.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objetos/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Bem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Objetos/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Categoria.java" afterDir="false" />
@@ -24,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -36,6 +37,7 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1So9cev1zL5AUlBX1GsCS72oW5j" />
   <component name="ProjectLevelVcsManager">
@@ -50,7 +52,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="MySQL" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/controladorVelocidade" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Git/Git GUI.lnk" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,9 +62,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="relatorios" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\IdeaProjects\Telegram_Bot\lib" />
       <recent name="C:\Users\User\IdeaProjects\Telegram_Bot" />
@@ -137,7 +142,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

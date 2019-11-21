@@ -22,6 +22,7 @@ public abstract class Conexao{
     public static Statement estado;
 
 
+
     public static boolean conectar() throws AbsenceDriverMSQLException,DatabaseAccessException{
         try {
             Class.forName(driver);
