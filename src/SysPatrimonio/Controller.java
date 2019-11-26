@@ -1,10 +1,12 @@
 package SysPatrimonio;
 
+import SysPatrimonio.Cadastro.CadastraBem;
+import SysPatrimonio.Cadastro.CadastraCategoria;
+import SysPatrimonio.Cadastro.CadastraLocal;
 import com.itextpdf.text.DocumentException;
 import conexaoBD.excecoesBD.AbsenceDriverMSQLException;
 import conexaoBD.excecoesBD.DatabaseAccessException;
 import javafx.fxml.FXML;
-import SysPatrimonio.Cadastro.CadastraBem;
 import relatorios.Relatorio;
 
 public class Controller {
@@ -22,7 +24,9 @@ public class Controller {
     }
 
     @FXML
-    private void cadastraCategoria() {
+    private void cadastraCategoria() throws Exception {
+        CadastraCategoria cadastro = new CadastraCategoria();
+        cadastro.start();
     }
 
     @FXML
@@ -30,7 +34,9 @@ public class Controller {
     }
 
     @FXML
-    private void cadastraLocal() {
+    private void cadastraLocal() throws Exception {
+        CadastraLocal cadastro = new CadastraLocal();
+        cadastro.start();
     }
 
     @FXML

@@ -1,8 +1,5 @@
 package SysPatrimonio.Cadastro;
 
-import Objetos.Bem;
-import conexaoBD.ConexaoBem;
-import conexaoBD.ConexaoCategoria;
 import conexaoBD.ConexaoLocalizacao;
 import conexaoBD.excecoesBD.AbsenceDriverMSQLException;
 import conexaoBD.excecoesBD.DatabaseAccessException;
@@ -13,15 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CadastraBem {
+public class CadastraLocal {
     @FXML
     public javafx.scene.control.TextField fieldNome;
     @FXML
     public javafx.scene.control.TextField fieldDescricao;
-    @FXML
-    public javafx.scene.control.TextField fieldCategoria;
-    @FXML
-    public javafx.scene.control.TextField fieldLocal;
     @FXML
     private javafx.scene.control.Button OKButton;
     @FXML
@@ -30,8 +23,8 @@ public class CadastraBem {
     Stage primaryStage = new Stage();
 
     public void start() throws Exception {
-        Parent root = (Parent) FXMLLoader.load(this.getClass().getResource("cadastraBem.fxml"));
-        primaryStage.setTitle("Cadastrar Bem");
+        Parent root = (Parent) FXMLLoader.load(this.getClass().getResource("cadastraLocal.fxml"));
+        primaryStage.setTitle("Cadastrar Local");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -39,14 +32,8 @@ public class CadastraBem {
     @FXML
     protected void OKclique() throws DatabaseAccessException, InvalidInputParametersException, AbsenceDriverMSQLException {
         Stage stage = (Stage) OKButton.getScene().getWindow();
-        int codCat, codLoc;
-        ConexaoCategoria Cat = new ConexaoCategoria();
-        ConexaoLocalizacao Loc = new ConexaoLocalizacao();
-        codCat = Cat.procuraExistenciaCategoria(fieldCategoria.getText()) ;
-        codLoc = Loc.procuraExistenciaLocal(fieldLocal.getText());
-        Bem bemCadastro = new Bem(fieldNome.getText(), fieldDescricao.getText(), codCat, codLoc);
-        ConexaoBem bemCadastrar = new ConexaoBem();
-        bemCadastrar.adicionar(bemCadastro);
+        ConexaoLocalizacao local = new ConexaoLocalizacao();
+        local.adicionar(fieldNome.getText(), fieldDescricao.getText());
         stage.close();
     }
 
