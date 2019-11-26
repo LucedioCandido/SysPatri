@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/relatorios/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/Relatorio.java" afterDir="false" />
-    </list>
+    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +76,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SysPatrimonio.Main" />
+      <module name="Telegram_Bot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SysPatrimonio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Telegram_Bot" />
@@ -88,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
