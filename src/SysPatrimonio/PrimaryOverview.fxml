@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-background-color 0xdfdfdfff?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="SysPatrimonio.Controller">
+  <children>
+    <Pane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="27.0" prefWidth="800.0">
+          <menus>
+            <Menu mnemonicParsing="false" text="Opções">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Configurações" />
+                <MenuItem mnemonicParsing="false" text="Logout" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bens">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#cadastraBem" text="Cadastrar Bem" fx:id="cadastraBem" />
+                <MenuItem mnemonicParsing="false" onAction="#deletaBem" text="Deletar Bens" fx:id="deletaBem" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Categorias">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#cadastraCategoria" text="Cadastrar Categoria" fx:id="cadastraCategoria" />
+                <MenuItem mnemonicParsing="false" onAction="#deletaCategoria" text="Deletar Categoria" fx:id="deletaCategoria" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Locais">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#cadastraLocal" text="Cadastrar Local" fx:id="cadastraLocal" />
+                <MenuItem mnemonicParsing="false" onAction="#deletaLocal" text="Deletar Local" fx:id="deletaLocal" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Relatórios">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#listaBem" text="Listar Bens" fx:id="listaBem" />
+                <MenuItem mnemonicParsing="false" onAction="#listaCategoria" text="Listar Categorias" fx:id="listaCategoria" />
+                <MenuItem mnemonicParsing="false" onAction="#listaLocal" text="Listar Locais" fx:id="listaLocal" />
+                <MenuItem mnemonicParsing="false" onAction="#relatorioGeral" text="Relatorio Geral de Itens" fx:id="relatorioGeral" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
