@@ -30,7 +30,6 @@ public class ConexaoLocalizacao extends Conexao {
         return false;
     }
 
-
     public boolean remover(int cod) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
         String sql = "delete from localizacao where cod_localizacao = ?";
         PreparedStatement estadoAtual;
@@ -49,10 +48,29 @@ public class ConexaoLocalizacao extends Conexao {
         return false;
     }
 
-    //consultar todas as localizacoes
+    public Localizacao isExistent(String nome) throws InvalidInputParametersException, DatabaseAccessException, AbsenceDriverMSQLException {
+        String sql = "Select cod_localizacao from localizacao where nome ='" + nome + "';";
+        if (conectar()) {
+            try {
+                ResultSet resultado = estado.executeQuery(sql);
+                while (resultado.next()) {
+                    Localizacao local = new Localizacao(
+                            resultado.getInt("cod_localizacao"),
+                            resultado.getString("nome"),
+                            resultado.getString("descricao")
+                    );
+                    return local;
+                }
+            } catch (SQLException ex) {
+                throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex);
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Localizacao> consultar() throws InvalidInputParametersException, DatabaseAccessException, AbsenceDriverMSQLException {
         ArrayList<Localizacao> locais = new ArrayList<Localizacao>();
-        String sql = "Select * from categoria ;";
+        String sql = "Select * from localizacao;";
         if(conectar()){
             try {
                 ResultSet resultado = estado.executeQuery(sql);
@@ -73,4 +91,18 @@ public class ConexaoLocalizacao extends Conexao {
         return locais;
     }
 
+    public int procuraExistenciaLocal(String nome) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
+
+        if(conectar()){
+            try {
+                String sql = "Select cod_localizacao from localizacao where nome ='"+nome+"' ;";
+                ResultSet resultado = estado.executeQuery(sql);
+                resultado.next();
+                return resultado.getInt("cod_localizacao");
+            } catch (SQLException ex) {
+                throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
+            }
+        }
+        return -1;
+    }
 }

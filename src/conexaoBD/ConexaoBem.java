@@ -15,6 +15,10 @@ public class ConexaoBem extends Conexao {
 
     //Cadastro de um novo bem
     public boolean adicionar(Bem newBem) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
+        System.out.println(newBem.getNome());
+        System.out.println(newBem.getDescricao());
+        System.out.println(newBem.getCodCategoria());
+        System.out.println(newBem.getCodLocalizacao());
         String sql = "insert into bens(nome, descricao, cod_Categoria, cod_Localizacao) values(?,?,?,?);";
         PreparedStatement estadoAtual;
         if(conectar()){
@@ -54,8 +58,8 @@ public class ConexaoBem extends Conexao {
     }
 
     //movimentar bem entre localizacao, de uma para outra.
-    public boolean mover(Bem bem, Localizacao destino)throws InvalidInputParametersException,DatabaseAccessException,AbsenceDriverMSQLException  {
-        String sql = "update bens set cod_localizacao ="+destino.getCodLocalizacao()+" from bens where cod_bem = "+bem.getCodBem()+";";
+    public boolean mover(int bem, int destino)throws InvalidInputParametersException,DatabaseAccessException,AbsenceDriverMSQLException  {
+        String sql = "update bens set cod_localizacao ="+destino+" from bens where cod_bem = "+bem+";";
         PreparedStatement estadoAtual;
         if(conectar()){
             try {
@@ -143,12 +147,35 @@ public class ConexaoBem extends Conexao {
 
     public ResultSet gerarRelatorio() throws InvalidInputParametersException {
         try {
-            String sql = "Select * from bens wh%';";
+            String sql = "select bens.cod_bem, bens.nome, bens.descricao, categoria.nome,localizacao.nome from bens, localizacao, categoria";
             ResultSet resultado = estado.executeQuery(sql);
             return  resultado;
         } catch (SQLException ex) {
             throw new InvalidInputParametersException("Erro na instrução sql. Não encontrou no BD, tabela ou tupla, espeficicados.: ", ex );
         }
     }
+
+    public Bem verificarExistencia(int codBem) throws InvalidInputParametersException {
+        ArrayList<Bem> bens = new ArrayList<Bem>();
+        String sql = "Select * from bens where cod_bem = "+codBem+";";
+        try {
+            ResultSet resultado = estado.executeQuery(sql);
+            while (resultado.next()) {
+                Bem bem = new Bem(
+                        resultado.getInt("cod_bem"),
+                        resultado.getString("nome"),
+                        resultado.getString("descricao"),
+                        resultado.getInt("cod_localizacao"),
+                        resultado.getInt("cod_categoria")
+                );
+
+                return bem;
+            }
+        } catch (SQLException ex) {
+            throw new InvalidInputParametersException("Erro na instrução sql. Não encontrou no BD, tabela ou tupla, espeficicados.: ", ex );
+        }
+        return null;
+    }
+
 
 }

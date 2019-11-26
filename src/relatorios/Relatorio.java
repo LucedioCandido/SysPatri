@@ -21,8 +21,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Relatorio extends Conexao {
-
+public class   Relatorio extends Conexao {
 
     public void exportData() throws DatabaseAccessException, AbsenceDriverMSQLException, DocumentException {
         try {
@@ -32,29 +31,30 @@ public class Relatorio extends Conexao {
             Date data = new Date();
             SimpleDateFormat form = new SimpleDateFormat("dd/MM/yyyy");
             String Data = form.format(data);
+
             FileOutputStream ou = new FileOutputStream("rel.pdf");
-                PdfWriter.getInstance(document, ou);
-                document.open(); // Abrindo o documento
+            PdfWriter.getInstance(document, ou);
+            document.open(); // Abrindo o documento
 
-                //gerando o cabeçalho do arquivo
-                document = genereteCabecalhoReport(document);
+            //gerando o cabeçalho do arquivo
+            document = genereteCabecalhoReport(document);
 
-                //Parte do titulo da tabela.
-                PdfPTable tableBens = generateTable();
+            //Parte do titulo da tabela.
+            PdfPTable tableBens = generateTable();
 
-                //adiciona os dados do BD à tabela
-                tableBens = readDataBase(tableBens);
+            //adiciona os dados do BD à tabela
+            tableBens = readDataBase(tableBens);
 
-                // add a tabela ao relatorio em pdf
-                document.add(tableBens);
+            // add a tabela ao relatorio em pdf
+            document.add(tableBens);
 
-                try {
-                    Desktop.getDesktop().open(new File("rel.pdf")); // pega a referência do PDF na pasta raiz para abri-lo.
-                } catch (IOException e) {
-                    //erro ao abrir aquivo
-                } finally {
-                    document.close(); // Fecha  documento
-                }
+            try {
+                Desktop.getDesktop().open(new File("rel.pdf")); // pega a referência do PDF na pasta raiz para abri-lo.
+            } catch (IOException e) {
+                //erro ao abrir aquivo
+            } finally {
+                document.close(); // Fecha  documento
+            }
         } catch (FileNotFoundException | InvalidInputParametersException | SQLException e) {
             e.printStackTrace();
         }
@@ -85,14 +85,13 @@ public class Relatorio extends Conexao {
     }
 
     private PdfPTable generateTable() throws DocumentException {
-
         // Tabela
         PdfPTable table = new PdfPTable(5);
         //@TO DO a definicao do tamnahjo variavel
         table.setTotalWidth(500);
 
         table.setLockedWidth(true);
-        table.setWidths(new int[]{10, 8, 5, 8, 8, 5, 12});
+        table.setWidths(new int[]{ 8, 5, 8, 8, 5});
 
         Font fontTableTitle = new Font(Font.FontFamily.HELVETICA, 9);
         Font fontTable = FontFactory.getFont(FontFactory.HELVETICA, 9, Font.BOLD, new BaseColor(BaseColor.WHITE.getRGB()));
@@ -162,35 +161,35 @@ public class Relatorio extends Conexao {
         Font fontTable = FontFactory.getFont(FontFactory.HELVETICA, 9, Font.BOLD, new BaseColor(BaseColor.WHITE.getRGB()));
         while (resultado.next()) {
             // Adicionando célula com os dados do banco
-            PdfPCell cod = new PdfPCell(new Phrase(resultado.getString("cod_bem"), fontTable));
+            PdfPCell cod = new PdfPCell(new Phrase(resultado.getString("bens.cod_bem"), fontTable));
             cod.setPadding(5);
             cod.setBorder(cod.NO_BORDER);
             cod.setHorizontalAlignment(Element.ALIGN_CENTER);
             cod.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
             // Adicionando célula com os dados do banco
-            PdfPCell Descricao = new PdfPCell(new Phrase(resultado.getString("descricao"), fontTable));
+            PdfPCell Descricao = new PdfPCell(new Phrase(resultado.getString("bens.nome"), fontTable));
             Descricao.setPadding(5);
             Descricao.setBorder(Descricao.NO_BORDER);
             Descricao.setHorizontalAlignment(Element.ALIGN_CENTER);
             Descricao.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
             // Adicionando célula com os dados do banco
-            PdfPCell nome = new PdfPCell(new Phrase(resultado.getString("nome"), fontTable));
+            PdfPCell nome = new PdfPCell(new Phrase(resultado.getString("bens.descricao"), fontTable));
             nome.setPadding(5);
             nome.setBorder(nome.NO_BORDER);
             nome.setHorizontalAlignment(Element.ALIGN_CENTER);
             nome.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
             // Adicionando célula com os dados do banco
-            PdfPCell local = new PdfPCell(new Phrase(resultado.getString("localização.nome"), fontTable));
+            PdfPCell local = new PdfPCell(new Phrase(resultado.getString("localizacao.nome"), fontTable));
             local.setPadding(5);
             local.setBorder(local.NO_BORDER);
             local.setHorizontalAlignment(Element.ALIGN_CENTER);
             local.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
             // Adicionando célula com os dados do banco
-            PdfPCell categoria = new PdfPCell(new Phrase(resultado.getString("categorias.nome"), fontTable));
+            PdfPCell categoria = new PdfPCell(new Phrase(resultado.getString("categoria.nome"), fontTable));
             categoria.setPadding(5);
             categoria.setBorder(categoria.NO_BORDER);
             categoria.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -198,4 +197,6 @@ public class Relatorio extends Conexao {
         }
         return tableCabecalho;
     }
+
+
 }

@@ -56,18 +56,34 @@ public class ConexaoCategoria extends Conexao {
             try {
                 ResultSet resultado = estado.executeQuery(sql);
                 while (resultado.next()) {
-                    Categoria bem = new Categoria(
+                    Categoria categoria = new Categoria(
                             resultado.getInt("cod_categoria"),
                             resultado.getString("nome"),
                             resultado.getString("descricao")
                     );
 
-                    categorias.add(bem);
+                    categorias.add(categoria);
                 }
             } catch (SQLException ex) {
                 throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
             }
         }
         return categorias;
+    }
+
+    public int procuraExistenciaCategoria(String nome) throws DatabaseAccessException, AbsenceDriverMSQLException, InvalidInputParametersException {
+
+        if(conectar()){
+            try {
+                String sql = "Select cod_categoria from categoria where nome ='"+nome+"' ;";
+                ResultSet resultado = estado.executeQuery(sql);
+                resultado.next();
+                return resultado.getInt("cod_categoria");
+
+            } catch (SQLException ex) {
+                throw new InvalidInputParametersException("Erro na instrucao sql. Não encontrou no BD, tabela ou tupla. Espeficicados: ", ex );
+            }
+        }
+        return -1;
     }
 }
