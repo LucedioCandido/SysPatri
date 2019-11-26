@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Categoria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Localizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Localizacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/Conexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/Conexao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoBem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoBem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoCategoria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoLocalizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/ConexaoLocalizacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/conexaoBD/excecoesBD/CodInexistenteException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objetos/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Bem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/botTelegram/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botTelegram/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoBem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoBem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoCategoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conexaoBD/ConexaoLocalizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexaoBD/ConexaoLocalizacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/relatorios/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/Relatorio.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,7 +116,7 @@
       <workItem from="1573598193449" duration="96000" />
       <workItem from="1573670303251" duration="3219000" />
       <workItem from="1573747438675" duration="346000" />
-      <workItem from="1574734228144" duration="6604000" />
+      <workItem from="1574734228144" duration="6882000" />
     </task>
     <task id="LOCAL-00001" summary="Adiciona tratamento de exeções, estabelece conexao com banco de dados mysql, e implementa uma parte da configuração do bot telegram.">
       <created>1574091851588</created>
@@ -149,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574699609209</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add bot telegram">
+      <created>1574741881299</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574741881299</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
