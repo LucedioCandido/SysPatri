@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/PrimaryOverview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/PrimaryOverview.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Objetos/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Bem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SysPatrimonio/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SysPatrimonio/Main.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainInterface">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Telegram_Bot" />
