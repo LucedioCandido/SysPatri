@@ -9,9 +9,6 @@ public class Bem {
     private int codCategoria;
     private int codLocalizacao;
 
-    public Bem(String nome, String descricao, String categoria, String local){
-
-    }
     public Bem(String nome, String descricao, int codCat, int codLocal){
         this.nome = nome;
         this.descricao = descricao;

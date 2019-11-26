@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="" />
+    <list default="true" id="f36ea5b2-5146-460b-9678-76078f2e7c84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/Objetos/Bem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/PrimaryOverview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Telegram_Bot/SysPatrimonio/PrimaryOverview.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Objetos/Bem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Objetos/Bem.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +84,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SysPatrimonio.Main" />
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Telegram_Bot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SysPatrimonio.MainInterface" />
       <module name="Telegram_Bot" />
       <extension name="coverage">
         <pattern>
@@ -90,16 +105,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Telegram_Bot" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.MainInterface" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
